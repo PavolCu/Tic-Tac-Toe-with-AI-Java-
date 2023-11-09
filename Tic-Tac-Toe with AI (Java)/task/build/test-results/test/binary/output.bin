@@ -1,0 +1,10 @@
+[1;31m
+Start test 1[0m
+Input command > > start
+Bad parameters!
+Input command > > start easy
+Bad parameters!
+Input command > > exit
+[1;31m
+Start test 2[0m
+"Input command > > start user easy
