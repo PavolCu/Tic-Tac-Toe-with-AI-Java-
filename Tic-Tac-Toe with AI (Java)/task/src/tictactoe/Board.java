@@ -18,6 +18,7 @@ public class Board {
         return newBoard;
     }
 
+
     private final Player[][] board = new Player[3][3];
 
     public Player getPlayerAt(int x, int y) {

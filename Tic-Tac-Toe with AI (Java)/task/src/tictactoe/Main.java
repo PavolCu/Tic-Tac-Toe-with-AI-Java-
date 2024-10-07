@@ -40,6 +40,8 @@ public class Main {
         AI computer = new AI(board);
         Player currentPlayer = Player.X;
 
+        board.display();
+
         while (true) {
             if (currentPlayer == Player.X) {
                 if (xPlayer.equals("user")) {
@@ -73,15 +75,31 @@ public class Main {
     public static void handleUserMove(Board board, Player player, Scanner scanner) {
         while (true) {
             System.out.print("Enter the coordinates: > ");
-            int x = scanner.nextInt();
-            int y = scanner.nextInt();
-            scanner.nextLine(); // consume the rest of the line
+            String input = scanner.nextLine();
+            String[] inputs = input.split("\\s+");
+
+            if (inputs.length != 2) {
+                System.out.println("You should enter numbers!");
+                continue;
+            }
+
+            int x, y;
+            try {
+                x = Integer.parseInt(inputs[0]);
+                y = Integer.parseInt(inputs[1]);
+            } catch (NumberFormatException e) {
+                System.out.println("You should enter numbers!");
+                continue;
+            }
+
             if (board.isValidMove(x, y)) {
                 board.makeMove(x, y, player);
+                board.display(); // Display the board after the move
                 break;
             }
         }
     }
+
 
     public static void handleAIMove(Board board, Player player, String level, AI computer) {
         System.out.println("Making move level \"" + level + "\"");
@@ -100,6 +118,7 @@ public class Main {
                 throw new IllegalStateException("Unexpected level: " + level);
         }
         board.makeMove(aiMove[0], aiMove[1], player);
-        board.display();
+        board.display(); // Board is displayed here
     }
+
 }

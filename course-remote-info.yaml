@@ -3,7 +3,7 @@ hyperskill_project:
   ide_files: https://cogniterra.org/media/attachments/lesson/24476/additional_files.json
   is_template_based: false
   use_ide: true
-update_date: "Thu, 09 Nov 2023 10:59:18 UTC"
+update_date: "Mon, 07 Oct 2024 20:10:21 UTC"
 stages:
   - id: 447
     step: 7434
@@ -19,13 +19,13 @@ stages:
     is_completed: true
   - id: 451
     step: 7438
-    is_completed: false
+    is_completed: true
 topics:
   0:
     - title: "Write, compile, and run"
       theory_id: 3739
     - title: Introduction to Java
-      theory_id: 3500
+      theory_id: 38627
     - title: "Basic literals: numbers, strings and characters"
       theory_id: 3522
     - title: Writing first program
@@ -46,6 +46,16 @@ topics:
       theory_id: 3519
     - title: Integer types and operations
       theory_id: 3565
+    - title: Increment and decrement
+      theory_id: 5008
+    - title: Data types and their sizes
+      theory_id: 3532
+    - title: Type casting
+      theory_id: 3510
+    - title: Calling methods
+      theory_id: 10973
+    - title: Floating-point types
+      theory_id: 3517
     - title: Boolean type and operations. True and false
       theory_id: 3516
     - title: Comparing values. Relational operators
@@ -54,22 +64,14 @@ topics:
       theory_id: 3503
     - title: One-line condition with ternary operator
       theory_id: 3506
-    - title: Increment and decrement
-      theory_id: 5008
     - title: While and do-while loops
       theory_id: 3498
-    - title: For-loop
+    - title: For loop
       theory_id: 3505
     - title: Break and continue. Branching
       theory_id: 3507
     - title: "Multiple conditions: switch"
       theory_id: 3504
-    - title: Data types and their sizes
-      theory_id: 3532
-    - title: Type casting
-      theory_id: 3510
-    - title: Calling methods
-      theory_id: 10973
     - title: Primitive and reference types
       theory_id: 5035
     - title: Array
@@ -91,19 +93,17 @@ topics:
       theory_id: 3489
     - title: Functional decomposition
       theory_id: 10570
-    - title: What is object-oriented programming
-      theory_id: 3614
     - title: IntelliJ IDEA
       theory_id: 37202
     - title: IntelliJ IDEA basics
       theory_id: 5819
     - title: JetBrains Academy plugin
       theory_id: 5839
-    - title: Random
+    - title: Random class
       theory_id: 4910
     - title: Defining classes
       theory_id: 3618
-    - title: Objects
+    - title: Objects and their properties
       theory_id: 4727
   2:
     - title: Arrays as parameters
@@ -127,33 +127,25 @@ topics:
       theory_id: 3583
     - title: Multiple constructors
       theory_id: 3538
-    - title: The keyword super
+    - title: Keyword "super"
       theory_id: 3588
     - title: Static members
       theory_id: 3534
-    - title: Annotations basics
+    - title: Adding annotations
       theory_id: 3622
-    - title: Hiding and overriding
+    - title: Method overriding
       theory_id: 3572
     - title: Covariant return types
       theory_id: 3539
   4:
     - title: Computer algorithms
       theory_id: 16547
-    - title: "Big O: how to count it"
-      theory_id: 35901
-    - title: "Best, average and worst cases"
-      theory_id: 20084
     - title: Data structures
+      theory_id: 40371
+    - title: Abstract and concrete data structures
       theory_id: 16927
     - title: Operating systems
       theory_id: 9704
-    - title: Pseudocode
-      theory_id: 15090
-    - title: Pseudocode basics
-      theory_id: 19510
-    - title: Complex constructions in pseudocode
-      theory_id: 20922
     - title: Stack
       theory_id: 5252
     - title: First glance at exceptions
@@ -184,7 +176,7 @@ topics:
       theory_id: 3585
     - title: Polymorphism
       theory_id: 3587
-    - title: Interface
+    - title: Declaring functionality with interfaces
       theory_id: 3615
     - title: Abstract class
       theory_id: 3597

@@ -25,31 +25,37 @@ public class AI {
         }
     }
 
-   private MoveScore minimax(Board board, Player currentPlayer, boolean isMaximizing, Player onMove) {
-        if (board.hasPlayerWon(Player.X)) return  new MoveScore(null, Player.X == onMove ? 10 : -10);
-        if (board.hasPlayerWon(Player.O)) return  new MoveScore(null, Player.O == onMove ? 10 : -10);
-        if (board.isFull()) return new MoveScore(null, 0);
+    private MoveScore minimax(Board board, Player currentPlayer, boolean isMaximizing, Player aiPlayer) {
+        if (board.hasPlayerWon(aiPlayer)) {
+            return new MoveScore(null, 10);
+        } else if (board.hasPlayerWon(aiPlayer.other())) {
+            return new MoveScore(null, -10);
+        } else if (board.isFull()) {
+            return new MoveScore(null, 0);
+        }
 
         List<int[]> availableCells = getAvailableCells(board);
-        List<MoveScore> moveScores = new ArrayList<>();
+        MoveScore bestMoveScore = new MoveScore(null, isMaximizing ? Integer.MIN_VALUE : Integer.MAX_VALUE);
 
         for (int[] cell : availableCells) {
-            Board newBoard = board.copy(); // You might need to add a copy() method to the Board class.
-            newBoard.makeMove(cell[0], cell[1], onMove);
+            Board newBoard = board.copy();
+            newBoard.makeMove(cell[0], cell[1], currentPlayer);
 
-            MoveScore currentMoveScore = minimax(newBoard, currentPlayer.other(), !isMaximizing, onMove);
+            MoveScore currentMoveScore = minimax(newBoard, currentPlayer.other(), !isMaximizing, aiPlayer);
 
-            moveScores.add(new MoveScore(cell, currentMoveScore.score));
-        }
-
-        MoveScore bestMoveScore = moveScores.get(0);
-        for (MoveScore ms : moveScores) {
             if (isMaximizing) {
-                if (ms.score > bestMoveScore.score) bestMoveScore = ms;
+                if (currentMoveScore.score > bestMoveScore.score) {
+                    bestMoveScore.score = currentMoveScore.score;
+                    bestMoveScore.move = cell;
+                }
             } else {
-                if (ms.score < bestMoveScore.score) bestMoveScore = ms;
+                if (currentMoveScore.score < bestMoveScore.score) {
+                    bestMoveScore.score = currentMoveScore.score;
+                    bestMoveScore.move = cell;
+                }
             }
         }
+
         return bestMoveScore;
     }
 
